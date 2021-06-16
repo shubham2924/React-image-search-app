@@ -1,0 +1,23 @@
+{
+  "name": "Image Search-app",
+  "short_name": "Gallery",
+  "theme_color": "#f1f1f1",
+  "background_color": "#2196f3",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    
+    {
+      "src": "images/icons/icon-256x256.png",
+      "type": "image/png",
+      "sizes": "256x256"
+    },
+    {
+      "src": "images/icons/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ]
+  
+}

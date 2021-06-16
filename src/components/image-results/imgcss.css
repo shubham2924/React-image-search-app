@@ -1,0 +1,7 @@
+/* .my-class {
+    transform:scale(1, 1);
+    transition: 1s;
+} 
+    .my-class:hover {
+        transform:scale(-1, -1);
+    } */

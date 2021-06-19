@@ -1,19 +1,14 @@
 import React, { Component } from 'react';
-import TextField from 'material-ui/TextField';
-import InputAdornment from '@material-ui/core/InputAdornment';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import SelectField from 'material-ui/SelectField';
 import MenuItem from 'material-ui/MenuItem';
 import axios from 'axios';
-import SearchIcon from '@material-ui/icons/Search';
 import ImageResults from '../image-results/ImageResults';
 import Loader from "react-loader-spinner";
 import Typography from '@material-ui/core/Typography';
 import './SearchStyle.css';
 import ClearIcon from '@material-ui/icons/Clear';
 import IconButton from "material-ui/IconButton";
-
-import Sb from './Sb';
 
 class Search extends Component {
     state = {
@@ -95,7 +90,6 @@ class Search extends Component {
                         <MenuItem value={10} primaryText="10" />
                         <MenuItem value={15} primaryText="15" />
                         <MenuItem value={30} primaryText="30" />
-                        <MenuItem value={50} primaryText="50" />
                     </SelectField></div>
                     <br /><br></br>
 
@@ -109,8 +103,6 @@ class Search extends Component {
                     // {this.state.images.length > 0 ? (
                         <ImageResults images={this.state.images} />
                     // ) : null}
-
-
 
     }
                 

@@ -1,12 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import { createApi } from "unsplash-js";
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
 import useScrollTrigger from '@material-ui/core/useScrollTrigger';
 import KeyboardArrowUpIcon from '@material-ui/icons/KeyboardArrowUp';
 import Zoom from '@material-ui/core/Zoom';
-
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -47,41 +45,42 @@ const api = createApi({
     accessKey: "5L6BJklghi9r7iQVApzAmKi2h7ie65L2LKwKoJweyUg",
   });
 
-function About() {
+function About({query}) {
+    function usePhotos(query) {
+      const [photos, setPhotos] = useState(null);
+      const [error, setError] = useState(null);
     
-    const [data, setPhotosResponse] = useState(null);
+      useEffect(() => {
+        api.search.getPhotos({ query, perPage:30 })
+        .then(result => setPhotos(result))
+        .catch(err => setError(err));
+      }, [query]);
     
-        useEffect(()=>{
-            api.search
-        .getPhotos({ query: 'wallpaper', perPage:30 })
-    .then(result =>{
-        setPhotosResponse(result);
-        console.log(result);
-    })
-    .catch(()=>{
-        console.log("something went wrong!");
-    });
-        },[]);
-        
-    //   };
-    if (data === null) {
-        return <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}><h2>Loading...</h2></div>;
-      } else if (data.errors) {
-        return (
-          <div>
-            <div>{data.errors[0]}</div>
-            <div>PS: Make sure to set your access token!</div>
-          </div>
-        );
-      }
-      else{
-        return (
-            <>
-                {/* <h3 className="title">Results for "Wallpaper"</h3> */}
-                <Toolbar id="back-to-top-anchor" />
+      return [photos, error];
+    }
+    const [photos, error] = usePhotos(query);
+
+  if (error) {
+    <div>
+    <div>PS: Make sure to set your access token!</div>
+    </div>
+  };
+
+  if (!photos) {
+     return (
+     <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
+       <h2>Loading...</h2></div>
+       )
+  };
+
+   return (
+
+    <>
+                 {/* <h3 className="title">Results for "Wallpaper"</h3> */}
+                 <Toolbar id="back-to-top-anchor" />
 
                 <div className="card-list container">
-                    {data.response.results.map(pic => (
+                     {photos.response.results.map(pic => (
                       <div>
                         <div className="card content" key={pic.id}>
                           <div className="content-overlay"></div>
@@ -107,16 +106,16 @@ function About() {
                 <ScrollTop >
                   
         {/* <Fab style={{color:'primary'}} size="small" aria-label="scroll back to top"> */}
-          <KeyboardArrowUpIcon style={{backgroundColor:'#47d7ff'  , fontSize:'50px'}} />
+          <KeyboardArrowUpIcon style={{backgroundColor:'#3F51B5' , color:'#fff' , fontSize:'50px'}} />
         {/* </Fab> */}
         
       </ScrollTop>
     
             </>
-        );
-      }
 
-    
+
+   )
+
 }
 
 export default About;

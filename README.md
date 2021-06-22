@@ -1,3 +1,17 @@
+# Visit the web app here:
+https://react-image-feeder-app-unsplash-shubham-metkar.netlify.app/
+
+# 🚧 IMP NOTE:
+The time a user is using this web app, many other users also might be using this app simulatneously so if images are not rendered then it is requested to wait for some time and visit app again as Unsplash API(trial-free mode) is used to fetch images.
+
+## Some notable feature:
+1) This is a PWA(progressive web app) react app which uses [unsplash API](https://unsplash.com/developers).
+2) Provides notification when user's device gets disconnected from internet.
+3) Provided [product tour](https://www.npmjs.com/package/react-joyride) feature to let know user about the complete app.
+4) Persistent dark mode.
+5) Dedicated [drawer](https://material-ui.com/) section to search trending searches.
+6) User can preview particular image, can download it, [share](https://www.npmjs.com/package/react-share) it on social media.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

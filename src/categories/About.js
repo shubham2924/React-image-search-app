@@ -69,14 +69,14 @@ function About({query}) {
   if (!photos) {
      return (
      <div style={{display:'flex', justifyContent:'center', alignItems:'center'}}>
-       <h2>Loading...</h2></div>
+       <h2>Loading images for {query}...</h2></div>
        )
   };
 
    return (
 
     <>
-                 {/* <h3 className="title">Results for "Wallpaper"</h3> */}
+                 <h4 className="title">Showing results for {query}</h4>
                  <Toolbar id="back-to-top-anchor" />
 
                 <div className="card-list container">

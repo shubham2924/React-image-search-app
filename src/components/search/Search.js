@@ -61,6 +61,7 @@ class Search extends Component {
                 <div className="searchstuff" style={{zIndex:'10' ,paddingLeft:'2px'}}>
                     {/* <form> */}
                 <input
+                className="tour-contact"
                 autocomplete="off"
                 value={this.state.searchText}
                 name="searchText"
@@ -80,7 +81,7 @@ class Search extends Component {
                     <Typography variant="h6">
            Select Amount: 
           </Typography>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <SelectField style={{width:'95px' ,paddingLeft:'0px'}}
+                    <SelectField className="tour-policy" style={{width:'95px' ,paddingLeft:'0px'}}
                         name="amount"
                         floatingLabelText="Amount"
                         value={this.state.amount}

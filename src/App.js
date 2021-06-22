@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import clsx from "clsx";
+import Tour from './Tour.js';
 import { createBrowserHistory } from "history";
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -27,6 +28,7 @@ import {ReactComponent as TravelIcon} from './icons/travelicon.svg';
 import {ReactComponent as CovidIcon} from './icons/covidicon.svg';
 import {ReactComponent as BawIcon} from './icons/bawicon.svg';
 import {ReactComponent as PeopleIcon} from './icons/peopleicon.svg';
+import {ReactComponent as GithubIcon} from './icons/githubicon.svg';
 import {
   BrowserRouter as Router,
   Switch,
@@ -82,16 +84,16 @@ const MyToolbar = withStyles(styles)(({ classes, title, onMenuClick }) => (
     <AppBar style={{position:'fixed'}}  className={classes.aboveDrawer}>
       <Toolbar>
         <IconButton
-          className={classes.menuButton}
+          className={classes.menuButton,"tour-logo"}
           color="inherit"
           aria-label="Menu"
           onClick={onMenuClick}
         >
           <MenuIcon fontSize="30px" />
         </IconButton>
-        <Typography variant="h6" className={classes.title}>
+        <Typography className={classes.title}>
             Image Search App
-          </Typography>
+          </Typography><Tour />
       </Toolbar>
     </AppBar>
     <div className={classes.toolbarMargin} />
@@ -187,6 +189,10 @@ const MyDrawer = withStyles(styles)(
           onClick={onItemClick("Covid")}>
             <CovidIcon height='30px' />&nbsp;&nbsp;<ListItemText>Covid-19</ListItemText>
           </ListItem><Divider variant="middle" />
+          <ListItem>
+          <Typography style={{textAlign:"left",  alignItems:"center", fontSize:"10px"}}>Developed and maintained by <a style={{textDecoration:"none"}} target='_blank' href="https://twitter.com/shubham53468721">shubham</a> &nbsp;&nbsp;<a target='_blank' href="https://github.com/shubham2924/React-image-search-app"><GithubIcon height='20px' /></a>
+  </Typography>
+          </ListItem>
         </List>
       </Drawer>
       <main className={classes.content}>
@@ -208,10 +214,14 @@ const MyDrawer = withStyles(styles)(
 
 //export default class App extends Component {
  const App = ({ variant }) => { 
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState(() => localStorage.getItem("DARK_MODE"));
   const themeToggler = () => {
     theme === 'light' ? setTheme('dark') : setTheme('light')
 }
+
+useEffect(() => {
+  localStorage.setItem("DARK_MODE", theme);
+}, [theme]);
 
 const [isDarkMode, setDarkMode] = React.useState(false);
 
@@ -263,7 +273,7 @@ const [isDarkMode, setDarkMode] = React.useState(false);
       />
       <div className="dmode">
     <Tooltip title="Dark Mode" placement="right-end">
-        <button style={{float:'right', cursor:'pointer' , width:'35px', height:'35px' , paddingRight:'15px',border: 'none', outline:'none' , backgroundColor: 'transparent' }} onClick={themeToggler}>
+        <button className="tour-cart" style={{float:'right', cursor:'pointer' , width:'35px', height:'35px' , paddingRight:'15px',border: 'none', outline:'none' , backgroundColor: 'transparent' }} onClick={themeToggler}>
     <DarkModeSwitch
       style={{ marginBottom: '2rem' }}
       checked={isDarkMode}
@@ -279,7 +289,7 @@ const [isDarkMode, setDarkMode] = React.useState(false);
       </div>
       </>
     </ThemeProvider>
- 
+      
     </div> 
     )
   }

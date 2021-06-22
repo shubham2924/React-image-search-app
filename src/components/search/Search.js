@@ -15,7 +15,7 @@ class Search extends Component {
         searchText: '',
         amount: 15,
         apiUrl: 'https://api.unsplash.com/search/photos',
-        client_id: '5L6BJklghi9r7iQVApzAmKi2h7ie65L2LKwKoJweyUg',
+        client_id: '<YOUR_CLIENT_ID>',
         images: [],
 
         loading:false, 
@@ -35,7 +35,7 @@ class Search extends Component {
                 axios
                     .get(
                         // `${this.state.apiUrl}/?query=${this.state.searchText}&client_id=${this.state.client_id}`
-                        `https://api.unsplash.com/search/photos/?query=${this.state.searchText}&per_page=${this.state.amount}&client_id=5L6BJklghi9r7iQVApzAmKi2h7ie65L2LKwKoJweyUg`
+                        `https://api.unsplash.com/search/photos/?query=${this.state.searchText}&per_page=${this.state.amount}&client_id=<YOUR_CLIENT_ID>`
                     )
                     .then(res => this.setState({ images: res.data.results, loading:true }))
                     .catch(err => console.log(err));

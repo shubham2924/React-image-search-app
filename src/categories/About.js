@@ -42,7 +42,7 @@ function ScrollTop(props) {
 
 
 const api = createApi({
-    accessKey: "5L6BJklghi9r7iQVApzAmKi2h7ie65L2LKwKoJweyUg",
+    accessKey: "<YOUR_ACCESS_KEY>",
   });
 
 function About({query}) {

@@ -9,7 +9,7 @@ import { GlobalStyles } from "./components/globalStyles";
 import { lightTheme, darkTheme } from "./components/Themes";
 import './App.css';
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
-import Abouta from './categories/Abouta';
+import Wallpaper from './categories/Wallpaper';
 import Nature from './categories/Nature';
 import Technology from './categories/Technology.js';
 import Athletics from './categories/Athletics.js';
@@ -128,8 +128,8 @@ const MyDrawer = withStyles(styles)(
           <ListItem
             button
             component={Link}
-            to="/Abouta"
-            onClick={onItemClick("Abouta")}
+            to="/Wallpaper"
+            onClick={onItemClick("Wallpaper")}
           >
             <WallpaperIcon height='30px' />&nbsp;&nbsp;<ListItemText>Wallpaper</ListItemText>
           </ListItem><Divider variant="middle" />
@@ -197,7 +197,7 @@ const MyDrawer = withStyles(styles)(
       </Drawer>
       <main className={classes.content}>
         <Route exact path="/" component={Search} />
-        <Route path="/abouta" component={Abouta} />
+        <Route path="/wallpaper" component={Wallpaper} />
         <Route path="/technology" component={Technology} />
         <Route path="/fashion" component={Fashion} />
         <Route path="/athletics" component={Athletics} />

@@ -5,7 +5,7 @@ https://react-image-feeder-app-unsplash-shubham-metkar.netlify.app/
 The time a user is using this web app, many other users also might be using this app simulatneously so if images are not rendered then it is requested to wait for some time and visit app again as Unsplash API(trial-free mode) is used to fetch images.
 
 ## Some notable feature:
-1) This is a PWA(progressive web app) react app which uses [unsplash API](https://unsplash.com/developers).
+1) This is a PWA(progressive web app) react app which means user can just download the web-app on phone and use it like any other mobile app which uses [unsplash API](https://unsplash.com/developers).
 2) Provides notification when user's device gets disconnected from internet.
 3) Provided [product tour](https://www.npmjs.com/package/react-joyride) feature to let know user about the complete app.
 4) Persistent dark mode.
